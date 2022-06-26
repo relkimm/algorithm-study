@@ -34,6 +34,20 @@ export function isSpace(char) {
   return char === space();
 }
 
+export function isUpperCase(char) {
+  if (typeof char !== "string") {
+    return false;
+  }
+  return isUpperAscii(char.charCodeAt());
+}
+
+export function isLowerCase(char) {
+  if (typeof char !== "string") {
+    return false;
+  }
+  return isLowerCase(char.charCodeAt());
+}
+
 export function isUpperAscii(charcode) {
   return charcode >= 65 && charcode <= 90;
 }
