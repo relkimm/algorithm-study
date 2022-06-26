@@ -1,7 +1,8 @@
 // import "./석차_구하기";
 // import "./유효한_펠린드롬";
 // import "./온도의_최대값";
-import "./영어단어_복구";
+// import "./영어단어_복구";
+import "./anagram";
 
 export function len(target) {
   return target.length;
@@ -100,4 +101,12 @@ export function join(seperator) {
   return function (data) {
     return data.join(seperator);
   };
+}
+
+export function range(limit) {
+  const next = [];
+  for (let i = 0; i < limit; i++) {
+    next.push(i);
+  }
+  return next;
 }
