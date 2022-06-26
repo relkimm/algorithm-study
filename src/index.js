@@ -21,3 +21,72 @@ export function lower(target) {
   }
   return target;
 }
+
+export function space() {
+  return " ";
+}
+
+export function isSpace(char) {
+  if (typeof char !== "string") {
+    return false;
+  }
+  return char === space();
+}
+
+export function isUpperAscii(charcode) {
+  return charcode >= 65 && charcode <= 90;
+}
+
+export function toLowerAscii(charcode) {
+  return charcode + 32;
+}
+
+export function getCharCode(char) {
+  if (typeof char !== "string") {
+    return undefined;
+  }
+  return char.charCodeAt();
+}
+
+export function compose(...fns) {
+  return function (v) {
+    return fns.reduce((acc, fn) => fn(acc), v);
+  };
+}
+
+export function map(transform, data) {
+  const next = [];
+  for (const a of data) {
+    next.push(transform(a));
+  }
+  return next;
+}
+
+export function filter(predicate) {
+  return function (data) {
+    console.log(data);
+    const next = [];
+    for (const a of data) {
+      if (predicate(a)) {
+        next.push(a);
+      }
+    }
+    return next;
+  };
+}
+
+export function reduce(reducer, initValue) {
+  return function (data) {
+    let acc = initValue;
+    for (const a of data) {
+      reducer(acc, a);
+    }
+    return acc;
+  };
+}
+
+export function join(seperator) {
+  return function (data) {
+    return data.join(seperator);
+  };
+}
