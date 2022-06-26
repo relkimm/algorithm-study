@@ -74,6 +74,18 @@ export function filter(predicate) {
   };
 }
 
+export function reject(predicate) {
+  return function (data) {
+    const next = [];
+    for (const a of data) {
+      if (!predicate(a)) {
+        next.push(a);
+      }
+    }
+    return next;
+  };
+}
+
 export function reduce(reducer, initValue) {
   return function (data) {
     let acc = initValue;

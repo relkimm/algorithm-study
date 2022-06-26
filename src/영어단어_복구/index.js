@@ -6,7 +6,8 @@ import {
   toLowerAscii,
   filter,
   join,
-  reduce
+  reduce,
+  reject
 } from "..";
 
 function solution(input) {
@@ -47,7 +48,7 @@ const isNotSpace = (char) => !isSpace(char);
 
 function solution3(input) {
   return compose(
-    filter(isNotSpace),
+    reject(isSpace),
     reduce((acc, curr) => {
       if (isUpperChar(curr)) {
         const lowerChar = toLowerChar(curr);
