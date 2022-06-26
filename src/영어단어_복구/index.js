@@ -25,14 +25,10 @@ function solution2(input) {
   }
   const result = [];
   for (const char of input) {
-    if (!isSpace(char)) {
-      const isUpperChar = compose(getCharCode, isUpperAscii)(char);
-      if (isUpperChar) {
-        const lowerChar = compose(
-          getCharCode,
-          toLowerAscii,
-          String.fromCharCode
-        )(char);
+    if (char !== " ") {
+      const charCode = char.charCodeAt();
+      if (charCode >= 65 && charCode <= 90) {
+        const lowerChar = String.fromCharCode(charCode + 32);
         result.push(lowerChar);
       } else {
         result.push(char);

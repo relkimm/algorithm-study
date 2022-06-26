@@ -64,7 +64,6 @@ export function map(transform, data) {
 
 export function filter(predicate) {
   return function (data) {
-    console.log(data);
     const next = [];
     for (const a of data) {
       if (predicate(a)) {
