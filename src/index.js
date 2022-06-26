@@ -1,6 +1,7 @@
 // import "./석차_구하기";
 // import "./유효한_펠린드롬";
-import "./온도의_최대값";
+// import "./온도의_최대값";
+import "./영어단어_복구";
 
 export function len(target) {
   return target.length;
